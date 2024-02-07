@@ -1,0 +1,14 @@
+FROM mydebianimage
+
+RUN apt-get update && apt-get install -y gnupg2 default-jdk
+RUN wget https://dlcdn.apache.org/kafka/3.6.1/kafka_2.13-3.6.1.tgz
+RUN tar zxvf kafka_2.13-3.6.1.tgz
+RUN mv kafka_2.13-3.6.1 /opt/kafka
+RUN apt-key adv --fetch-keys https://www.postgresql.org/media/keys/ACCC4CF8.asc
+
+RUN apt-get update && apt-get -y install postgresql
+
+
+EXPOSE 5432
+
+CMD ["service", "postgresql", "start"]

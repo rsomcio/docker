@@ -1,0 +1,32 @@
+version: '1.0'
+services:
+  prometheus-other:
+    image: prom/prometheus
+    container_name: prometheus-other
+    ports:
+      - 9090:9090
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data-other:/prometheus
+  grafana:
+    image: grafana/grafana
+    container_name: grafana-other
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
+    volumes:
+      - ./grafana:/etc/grafana/provisioning/datasources
+
+  go-app:
+    image: my-golang-app
+    container_name: go-app
+    ports:
+      - 1212:1212
+    restart: unless-stopped
+
+volumes:
+  prometheus-data-other:

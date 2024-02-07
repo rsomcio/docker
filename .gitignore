@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyw
+*.pyc
+
+# Virtual Environment
+venv/
+env/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyw
+*.pyc
+
+# Docker
+.DS_Store
+docker-compose.override.yml
+*.log
+docker.env
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.local
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
